@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Engineers tool kit</title>
+<link rel="stylesheet" href="mystyle.css">
+<h1><a href="../index.html"> Engineers tool kit</a></h1>
+</head>
+<body>
+
+  <label for="result">Cone Area</label> <br />
+  <input type="text" id="result" disabled=true /> <br />
+  <br />
+  <label for="radious">Radio:</label> <br />
+  <input type="text" id="radious" name="radious"/> <br />
+  <br />
+  <label for="Slant">Slant height:</label> <br />
+  <input type="text" id="Slant" name="Slant"/> <br />
+  <br />
+  <button type="button" onclick="area();">Calculate</button>
+  <button type="button" onclick="Erase();">Erase</button>
+
+  <script>
+  // Example of avg calc using class.
+
+  class  Area{
+      constructor(radious, slant) {
+          this.Radious = radious;
+          this.Slant = slant;
+
+      }
+      get Rectangule() {
+        return this.Radious;
+        return this.Slant;
+      }
+      set height(x) {
+        this.Radious = x;
+      }
+      set width(y) {
+        this.Slant = y;
+      }
+      solve() {
+          // Defensive coding: Prevent running this function if we do not have
+          // any values.
+          if (this.Radious === 0 && this.Slant) {
+              return 0;
+          }
+
+          // Foruma for average = Sum of values divided by count of values.
+          var cone = Math.PI * this.Radious * this.Slant;
+          return cone;
+      }
+      EraseAll() {
+        return 0;
+      }
+
+  }
+
+var CArea = new Area();
+
+
+  function area() {
+    var CArea = new Area(parseFloat(document.getElementById("radious").value), parseFloat(document.getElementById("Slant").value));
+    var result = CArea.solve();
+
+      document.getElementById("result").value = result;
+  }
+
+  function Erase(){
+    var RecArea = new Area(parseFloat(document.getElementById("radious").value), parseFloat(document.getElementById("Slant").value));
+    var result = RecArea.EraseAll();
+
+      document.getElementById("result").value = result;
+  }
+
+</script>
+</body>
+</html>

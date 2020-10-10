@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Engineers tool kit</title>
+<link rel="stylesheet" href="mystyle.css">
+<h1><a href="../index.html"> Engineers tool kit</a></h1>
+</head>
+<body>
+
+  <label for="result">triangule Area</label> <br />
+  <input type="text" id="result" disabled=true /> <br />
+  <br />
+  <label for="base">base:</label> <br />
+  <input type="text" id="base" name="base"/> <br />
+  <br />
+  <label for="height">Height:</label> <br />
+  <input type="text" id="height" name="height"/> <br />
+  <br />
+  <button type="button" onclick="area();">Calculate</button>
+  <button type="button" onclick="Erase();">Erase</button>
+
+  <script>
+  // Example of avg calc using class.
+
+  class  Area{
+      constructor(base, height) {
+          this.baseT = base;
+          this.heightT = height;
+
+      }
+      get Triangule() {
+        return this.heightT;
+        return this.baseT;
+      }
+      set height(x) {
+        this.heightT = x;
+      }
+      set base(y) {
+        this.baseT = y;
+      }
+      solve() {
+          // Defensive coding: Prevent running this function if we do not have
+          // any values.
+          if (this.baseT === 0 && this.heightT == 0) {
+              return 0;
+          }
+
+          // Foruma for average = Sum of values divided by count of values.
+          var triangule = (this.baseT * this.heightT)/2;
+          return triangule;
+      }
+      EraseAll() {
+        return 0;
+      }
+
+  }
+
+var TArea = new Area();
+
+
+  function area() {
+    var TArea = new Area(parseFloat(document.getElementById("base").value), parseFloat(document.getElementById("height").value));
+    var result = TArea.solve();
+
+      document.getElementById("result").value = result;
+  }
+
+  function Erase(){
+    var TArea = new Area(parseFloat(document.getElementById("base").value), parseFloat(document.getElementById("height").value));
+    var result = TArea.EraseAll();
+
+      document.getElementById("result").value = result;
+  }
+
+</script>
+</body>
+</html>

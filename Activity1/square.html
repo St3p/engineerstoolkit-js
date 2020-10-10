@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Engineers tool kit</title>
+<link rel="stylesheet" href="mystyle.css">
+<h1><a href="../index.html"> Engineers tool kit</a></h1>
+</head>
+<body>
+
+  <label for="result">Square Area</label> <br />
+  <input type="text" id="result" disabled=true /> <br />
+  <br />
+  <label for="lenght">Lenght of side:</label> <br />
+  <input type="text" id="lenght" name="lenght"/> <br />
+  <br />
+  <button type="button" onclick="area();">Calculate</button>
+  <button type="button" onclick="Erase();">Erase</button>
+
+  <script>
+  // Example of avg calc using class.
+
+  class  Area{
+      constructor(SquLenght) {
+          this.lenght = SquLenght;
+      }
+      get square() {
+        return this.lenght;
+      }
+      set square(x) {
+        this.lenght = x;
+      }
+      solve() {
+          // Defensive coding: Prevent running this function if we do not have
+          // any values.
+          if (this.lenght === 0) {
+              return 0;
+          }
+
+          // Foruma for average = Sum of values divided by count of values.
+          var square = this.lenght **2;
+          return square;
+      }
+      EraseAll() {
+        return 0;
+      }
+
+  }
+
+var Sqlenght = new Area();
+
+
+  function area() {
+    var Sqlenght = new Area(parseFloat(document.getElementById("lenght").value));
+    var result = Sqlenght.solve();
+
+      document.getElementById("result").value = result;
+  }
+
+  function Erase(){
+    var Sqlenght = new Area(parseFloat(document.getElementById("lenght").value));
+    var result = Sqlenght.EraseAll();
+
+      document.getElementById("result").value = result;
+  }
+
+</script>
+</body>
+</html>

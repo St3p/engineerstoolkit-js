@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Engineers tool kit</title>
+<link rel="stylesheet" href="mystyle.css">
+<h1><a href="../index.html"> Engineers tool kit</a></h1>
+</head>
+<body>
+
+  <label for="result">Rhombus Area</label> <br />
+  <input type="text" id="result" disabled=true /> <br />
+  <br />
+  <label for="LDiagonal">Large Diagonal:</label> <br />
+  <input type="text" id="LDiagonal" name="LDiagonal"/> <br />
+  <br />
+  <label for="SDiagonal">Small Diagonal:</label> <br />
+  <input type="text" id="SDiagonal" name="SDiagonal"/> <br />
+  <br />
+  <button type="button" onclick="area();">Calculate</button>
+  <button type="button" onclick="Erase();">Erase</button>
+
+  <script>
+  // Example of avg calc using class.
+
+  class  Area{
+      constructor(sDiagonal, lDiagonal) {
+          this.SD = sDiagonal;
+          this.LD = lDiagonal;
+
+      }
+      get Rhombus() {
+        return this.SD;
+        return this.LD;
+      }
+      set sDiagonal(x) {
+        this.SD = x;
+      }
+      set lDiagonal(y) {
+        this.LD = y;
+      }
+      solve() {
+          // Defensive coding: Prevent running this function if we do not have
+          // any values.
+          if (this.SD === 0 && this.LD == 0) {
+              return 0;
+          }
+
+          // Foruma for average = Sum of values divided by count of values.
+          var rhombus = (this.SD * this.LD)/2;
+          return rhombus;
+      }
+      EraseAll() {
+        return 0;
+      }
+
+  }
+
+var RArea = new Area();
+
+
+  function area() {
+    var RArea = new Area(parseFloat(document.getElementById("LDiagonal").value), parseFloat(document.getElementById("SDiagonal").value));
+    var result = RArea.solve();
+
+      document.getElementById("result").value = result;
+  }
+
+  function Erase(){
+    var RArea = new Area(parseFloat(document.getElementById("LDiagonal").value), parseFloat(document.getElementById("SDiagonal").value));
+    var result = RArea.EraseAll();
+
+      document.getElementById("result").value = result;
+  }
+
+</script>
+</body>
+</html>

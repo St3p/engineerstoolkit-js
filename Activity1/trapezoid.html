@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Engineers tool kit</title>
+<link rel="stylesheet" href="mystyle.css">
+<h1><a href="../index.html"> Engineers tool kit</a></h1>
+</head>
+<body>
+
+  <label for="result">trapezoid Area</label> <br />
+  <input type="text" id="result" disabled=true /> <br />
+  <br />
+  <label for="LSide">Large Side:</label> <br />
+  <input type="text" id="LSide" name="LSide"/> <br />
+  <br />
+  <label for="SSide">Small Side:</label> <br />
+  <input type="text" id="SSide" name="SSide"/> <br />
+  <br />
+  <label for="heigt">heigt:</label> <br />
+  <input type="text" id="heigt" name="heigt"/> <br />
+  <br />
+  <button type="button" onclick="area();">Calculate</button>
+  <button type="button" onclick="Erase();">Erase</button>
+
+  <script>
+  // Example of avg calc using class.
+
+  class  Area{
+      constructor(sSide, lSide, heigt) {
+          this.SS = sSide;
+          this.LS = lSide;
+          this.HT= heigt;
+
+      }
+      get Trapezoid() {
+        return this.SS;
+        return this.LS;
+        return this.HT;
+      }
+      set sSide(x) {
+        this.SS = x;
+      }
+      set lSidel(y) {
+        this.LS = y;
+      }
+      set Height(z){
+        this.HT = z;
+      }
+            solve() {
+          // Defensive coding: Prevent running this function if we do not have
+          // any values.
+          if (this.SS === 0 && this.LS == 0 && this.HT == 0) {
+              return 0;
+          }
+
+          // Foruma for average = Sum of values divided by count of values.
+          var trapezoid = ((this.SS + this.LS)/2)*this.HT;
+          return trapezoid;
+      }
+      EraseAll() {
+        return 0;
+      }
+
+  }
+
+var TArea = new Area();
+
+
+  function area() {
+    var TArea = new Area(parseFloat(document.getElementById("LSide").value), parseFloat(document.getElementById("SSide").value), parseFloat(document.getElementById("heigt").value));
+    var result = TArea.solve();
+
+      document.getElementById("result").value = result;
+  }
+
+  function Erase(){
+    var TArea = new Area(parseFloat(document.getElementById("LSide").value), parseFloat(document.getElementById("SSide").value), parseFloat(document.getElementById("heigt").value));
+    var result = TArea.EraseAll();
+
+      document.getElementById("result").value = result;
+  }
+
+</script>
+</body>
+</html>

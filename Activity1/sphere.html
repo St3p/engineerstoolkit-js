@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Engineers tool kit</title>
+<link rel="stylesheet" href="mystyle.css">
+<h1><a href="../index.html"> Engineers tool kit</a></h1>
+</head>
+<body>
+  <label for="result">Sphere Area</label> <br />
+  <input type="text" id="result" disabled=true /> <br />
+   <br />
+  <label for="radious">Radious:</label> <br />
+  <input type="text" id="radious" name="radious"/> <br />
+   <br />
+  <button type="button" onclick="area();">Calculate</button>
+  <button type="button" onclick="Erase();">Erase</button>
+
+  <script>
+  // Example of avg calc using class.
+
+  class  Area{
+      constructor(radious) {
+          this.R = radious;
+      }
+      get Sphere() {
+        return this.R;
+      }
+      set Radious(x) {
+        this.R = x;
+      }
+      solve() {
+          // Defensive coding: Prevent running this function if we do not have
+          // any values.
+          if (this.R === 0) {
+              return 0;
+          }
+
+          // Foruma for average = Sum of values divided by count of values.
+          var sphere = 4* Math.PI * (this.R ** 2);
+          return sphere;
+      }
+      EraseAll() {
+        return 0;
+      }
+
+  }
+
+var Sphere = new Area();
+
+
+  function area() {
+    var Sphere = new Area(parseFloat(document.getElementById("radious").value));
+    var result = Sphere.solve();
+
+      document.getElementById("result").value = result;
+  }
+
+  function Erase(){
+    var Sphere = new Area(parseFloat(document.getElementById("radious").value));
+    var result = Sphere.EraseAll();
+
+      document.getElementById("result").value = result;
+  }
+
+</script>
+</body>
+</html>

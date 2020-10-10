@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Engineers tool kit</title>
+<link rel="stylesheet" href="mystyle.css">
+<h1><a href="../index.html"> Engineers tool kit</a></h1>
+</head>
+<body>
+
+  <label for="result">Rectangule Area</label> <br />
+  <input type="text" id="result" disabled=true /> <br />
+  <br />
+
+  <label for="widht">width of side:</label> <br />
+  <input type="text" id="widht" name="widht"/> <br />
+  <br />
+  <label for="height">Height of Rectangule:</label> <br />
+  <input type="text" id="height" name="height"/> <br />
+  <br />
+  <button type="button" onclick="area();">Calculate</button>
+  <button type="button" onclick="Erase();">Erase</button>
+
+  <script>
+  // Example of avg calc using class.
+
+  class  Area{
+      constructor(width, height) {
+          this.widthRec = width;
+          this.heightRec = height;
+
+      }
+      get Rectangule() {
+        return this.heightRec;
+        return this.widthRec;
+      }
+      set height(x) {
+        this.heightRec = x;
+      }
+      set width(y) {
+        this.widthRec = y;
+      }
+      solve() {
+          // Defensive coding: Prevent running this function if we do not have
+          // any values.
+          if (this.widthRec === 0 && this.heightRec) {
+              return 0;
+          }
+
+          // Foruma for average = Sum of values divided by count of values.
+          var rec = this.widthRec * this.heightRec;
+          return rec;
+      }
+      EraseAll() {
+        return 0;
+      }
+
+  }
+
+var RecArea = new Area();
+
+
+  function area() {
+    var RecArea = new Area(parseFloat(document.getElementById("widht").value), parseFloat(document.getElementById("height").value));
+    var result = RecArea.solve();
+
+      document.getElementById("result").value = result;
+  }
+
+  function Erase(){
+    var RecArea = new Area(parseFloat(document.getElementById("widht").value), parseFloat(document.getElementById("height").value));
+    var result = RecArea.EraseAll();
+
+      document.getElementById("result").value = result;
+  }
+
+</script>
+</body>
+</html>

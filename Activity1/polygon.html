@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Engineers tool kit</title>
+<link rel="stylesheet" href="mystyle.css">
+<h1><a href="../index.html"> Engineers tool kit</a></h1>
+</head>
+<body>
+
+  <label for="result">Regular Polygon Area</label> <br />
+  <input type="text" id="result" disabled=true /> <br />
+  <br />
+  <label for="Perimeter">Perimeter:</label> <br />
+  <input type="text" id="Perimeter" name="Perimeter"/> <br />
+  <br />
+  <label for="Aphotem">Aphotem:</label> <br />
+  <input type="text" id="Aphotem" name="Aphotem"/> <br />
+  <br />
+  <button type="button" onclick="area();">Calculate</button>
+  <button type="button" onclick="Erase();">Erase</button>
+
+  <script>
+  // Example of avg calc using class.
+
+  class  Area{
+      constructor(perimeter, aphotem) {
+          this.P = perimeter;
+          this.A = aphotem;
+
+      }
+      get Rhombus() {
+        return this.P;
+        return this.A;
+      }
+      set sDiagonal(x) {
+        this.P = x;
+      }
+      set lDiagonal(y) {
+        this.A = y;
+      }
+      solve() {
+          // Defensive coding: Prevent running this function if we do not have
+          // any values.
+          if (this.P === 0 && this.A == 0) {
+              return 0;
+          }
+
+          // Foruma for average = Sum of values divided by count of values.
+          var polygon = (this.P / 2)* this.A;
+          return polygon;
+      }
+      EraseAll() {
+        return 0;
+      }
+
+  }
+
+var PArea = new Area();
+
+
+  function area() {
+    var PArea = new Area(parseFloat(document.getElementById("Perimeter").value), parseFloat(document.getElementById("Aphotem").value));
+    var result = PArea.solve();
+
+      document.getElementById("result").value = result;
+  }
+
+  function Erase(){
+    var PArea = new Area(parseFloat(document.getElementById("Perimeter").value), parseFloat(document.getElementById("Aphotem").value));
+    var result = PArea.EraseAll();
+
+      document.getElementById("result").value = result;
+  }
+
+</script>
+</body>
+</html>
