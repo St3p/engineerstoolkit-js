@@ -56,13 +56,10 @@
 
   }
 
-var RecArea = new Area();
-
 
   function area() {
     var RecArea = new Area(parseFloat(document.getElementById("widht").value), parseFloat(document.getElementById("height").value));
     var result = RecArea.solve();
-
       document.getElementById("result").value = result;
   }
 
